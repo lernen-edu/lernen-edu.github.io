@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lernen — Learn to think before you prompt</title>
+  <meta name="description" content="Demanding, Socratic, AI-era courses and tools that build genuine competence — the tutor refuses to do the work for you." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Lernen" />
+  <meta property="og:description" content="Demanding, Socratic, AI-era courses and tools that build genuine competence." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lernen.dev" />
+  <meta property="og:image" content="https://lernen.dev/assets/og.png" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="640" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lernen" />
+  <meta name="twitter:description" content="Demanding, Socratic, AI-era courses and tools that build genuine competence." />
+  <meta name="twitter:image" content="https://lernen.dev/assets/og.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-black.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #18181b;
+      --muted: #52525b;
+      --border: #e4e4e7;
+      --card: #fafafa;
+      --accent: #18181b;
+      --logo-black: inline;
+      --logo-white: none;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --fg: #f4f4f5;
+        --muted: #a1a1aa;
+        --border: #27272a;
+        --card: #16181d;
+        --accent: #f4f4f5;
+        --logo-black: none;
+        --logo-white: inline;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    header { text-align: center; padding: 96px 0 56px; }
+    .logo { width: 132px; height: auto; margin: 0 auto 28px; }
+    .logo-black { display: var(--logo-black); }
+    .logo-white { display: var(--logo-white); }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+    }
+    .tagline {
+      font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+      font-weight: 500;
+      color: var(--fg);
+      margin: 0 0 16px;
+    }
+    .lede {
+      max-width: 620px;
+      margin: 0 auto 32px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      transition: transform .08s ease, border-color .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+    .btn.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+    /* Sections */
+    section { padding: 40px 0; }
+    h2 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 0 0 24px;
+    }
+
+    /* Course grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+    .card {
+      display: block;
+      text-decoration: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      transition: transform .1s ease, border-color .15s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .card .name { font-weight: 700; font-size: 1.12rem; margin: 0 0 6px; }
+    .card .what { color: var(--muted); font-size: 0.93rem; margin: 0 0 14px; }
+    .card .meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
+    .card .for { color: var(--muted); }
+    .pill {
+      padding: 3px 10px; border-radius: 999px; font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    .pill.active { color: #15803d; border-color: #15803d44; background: #15803d12; }
+    .pill.dev { color: #b45309; border-color: #b4530944; background: #b4530912; }
+
+    /* Principles */
+    .principles { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .principles li { padding-left: 0; }
+    .principles b { font-weight: 600; }
+    .principles span { color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+      padding: 32px 0 64px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    footer a { font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="logo logo-black" src="/assets/logo-black.svg" alt="Lernen" />
+      <img class="logo logo-white" src="/assets/logo-white.svg" alt="Lernen" />
+      <h1>Lernen</h1>
+      <p class="tagline">Learn to think before you prompt.</p>
+      <p class="lede">
+        Demanding, Socratic, AI-era courses and tools that build genuine competence.
+        The tutor won't write your code, hand you answers, or confirm a flag — it
+        enforces the discipline that turns months of work into evidence you can defend.
+      </p>
+      <div class="links">
+        <a class="btn primary" href="#courses">Browse courses</a>
+        <a class="btn" href="https://github.com/lernen-edu">GitHub</a>
+      </div>
+    </header>
+
+    <section id="courses">
+      <h2>Courses &amp; Tools</h2>
+      <div class="grid">
+        <a class="card" href="https://vigil.lernen.dev">
+          <p class="name">Vigil</p>
+          <p class="what">12-month, lab-driven cybersecurity course — complete novice to working practitioner, with a public portfolio.</p>
+          <div class="meta"><span class="for">Aspiring security pros</span><span class="pill active">Active</span></div>
+        </a>
+        <a class="card" href="https://agentwright.lernen.dev">
+          <p class="name">Agentwright</p>
+          <p class="what">12-month agentic-engineering course — zero coding to deploying always-on, value-generating AI systems. Free on macOS.</p>
+          <div class="meta"><span class="for">Future AI engineers</span><span class="pill active">Active</span></div>
+        </a>
+        <a class="card" href="https://muster.lernen.dev">
+          <p class="name">Muster</p>
+          <p class="what">Pattern-first LeetCode &amp; coding-interview mastery in Python. Build the recognition reflex, not a pile of memorized solutions.</p>
+          <div class="meta"><span class="for">Interview prep</span><span class="pill active">Active</span></div>
+        </a>
+        <a class="card" href="https://github.com/lernen-edu/wachturm">
+          <p class="name">Wachturm</p>
+          <p class="what">Self-hosted Tier-1 SOC analyst training — real tools (Wazuh, DFIR-IRIS, Cortex), scripted incidents, Docker.</p>
+          <div class="meta"><span class="for">Blue-team learners</span><span class="pill active">Active</span></div>
+        </a>
+        <a class="card" href="https://github.com/lernen-edu/lernen">
+          <p class="name">Lernen</p>
+          <p class="what">A command-line tutor for genuine fluency in one programming language — structurally prevented from writing your code.</p>
+          <div class="meta"><span class="for">Vibe coders going deep</span><span class="pill dev">Pre-1.0</span></div>
+        </a>
+        <a class="card" href="https://github.com/lernen-edu/lernen-praxis">
+          <p class="name">Lernen Praxis</p>
+          <p class="what">An in-host skill that coaches the safe, efficient, effective use of agentic coding tools — on your real work.</p>
+          <div class="meta"><span class="for">Agent operators</span><span class="pill dev">In design</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>How our courses are different</h2>
+      <ul class="principles">
+        <li><b>Concept first, command second.</b> <span>No tool runs until you can explain what it does to the wire, the disk, or the kernel.</span></li>
+        <li><b>The struggle floor.</b> <span>A fixed window of unaided work before any hint or walkthrough.</span></li>
+        <li><b>Hints, not answers.</b> <span>A rung-by-rung hint ladder; the tutor never hands you the solution or confirms a flag.</span></li>
+        <li><b>Spaced repetition is the curriculum.</b> <span>Prior work pulled back and re-solved cold, on a schedule.</span></li>
+        <li><b>AI is an apprentice's tool, not a crutch.</b> <span>Fundamentals stay AI-free; augmentation unlocks under provenance discipline.</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      Curriculum content is generally CC BY (some BY-SA); code is MIT/AGPL per repo.<br />
+      <a href="https://github.com/lernen-edu">github.com/lernen-edu</a>
+    </div>
+  </footer>
+</body>
+</html>
